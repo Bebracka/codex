@@ -1,0 +1,6 @@
+fun add(a, b) {
+  return a + b;
+}
+
+let nums = [1, 2, 3];
+print add(nums[0], nums[2]);
