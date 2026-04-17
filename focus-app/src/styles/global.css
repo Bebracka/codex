@@ -1,0 +1,185 @@
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  color: #eef3ff;
+  background: #07090f;
+  --bg: #07090f;
+  --surface: #111522;
+  --surface-2: #181d2d;
+  --accent: #3b82f6;
+  --text-muted: #9ca6bf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 10%, #141a2b 0%, #07090f 45%);
+  padding: 1rem 0.85rem 2rem;
+}
+
+.app-shell {
+  max-width: 520px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.screen {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.card {
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(27, 33, 50, 0.95), rgba(16, 20, 31, 0.95));
+  border: 1px solid rgba(132, 156, 207, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.focus-screen { text-align: center; }
+.focus-screen.immersive .bottom-nav { opacity: 0.3; pointer-events: none; }
+
+.timer-wrap { padding: 1rem; }
+.timer-ring {
+  --progress: 0%;
+  width: min(78vw, 320px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--accent) var(--progress), rgba(59, 130, 246, 0.2) 0%);
+  padding: 10px;
+  transition: 400ms ease;
+}
+
+.timer-center {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #0b0f1a;
+}
+
+.timer-value {
+  font-size: clamp(2.3rem, 10vw, 4rem);
+  margin: 0;
+  font-weight: 700;
+}
+
+.muted { color: var(--text-muted); margin: 0; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); font-size: 0.75rem; }
+
+.task-picker {
+  text-align: left;
+  padding: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+select, input, button {
+  border-radius: 14px;
+  border: 1px solid rgba(122, 146, 198, 0.35);
+  background: #0f1422;
+  color: #ecf2ff;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+.primary-action {
+  background: linear-gradient(120deg, #3b82f6, #2068df);
+  border: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.95rem;
+}
+
+.exit-focus,
+.ghost { background: transparent; }
+
+.bottom-nav {
+  position: sticky;
+  bottom: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  padding: 0.35rem;
+}
+
+.bottom-nav button { border: none; background: transparent; }
+.bottom-nav button.active { background: rgba(59, 130, 246, 0.2); }
+
+.task-form,
+.task-item,
+.stat-card,
+.mini-chart,
+.modal { padding: 1rem; }
+
+.inline-fields {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: 1fr 1fr auto;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.checkbox {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+}
+
+.checked { background: #22c55e; border: none; }
+.line-through { text-decoration: line-through; opacity: 0.6; }
+.priority { text-transform: capitalize; }
+.priority.low { color: #86efac; }
+.priority.medium { color: #93c5fd; }
+.priority.high { color: #fda4af; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+.stat-value { margin: 0; font-size: 1.5rem; font-weight: 700; }
+.stat-label { margin: 0.35rem 0 0; color: var(--text-muted); font-size: 0.85rem; }
+
+.mini-chart {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: end;
+  gap: 0.45rem;
+  min-height: 120px;
+}
+
+.mini-chart div {
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, #60a5fa, #1d4ed8);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 12, 0.82);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.modal { width: min(100%, 380px); display: grid; gap: 0.8rem; }
+.modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.hold-button { background: linear-gradient(120deg, #1d4ed8, #2563eb); border: none; }
+
+.app-block { z-index: 30; }
+
+@media (max-width: 420px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}

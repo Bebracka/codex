@@ -1,0 +1,9 @@
+{
+  "name": "Focus Flow",
+  "short_name": "FocusFlow",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "icons": []
+}
